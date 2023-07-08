@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+<style>
+  body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:blanchedalmond;
+  }
+
+  .calculator {
+      max-width: 300px;
+      margin: 0 auto;
+      background-color: #8D8E8E;
+      padding: 20px;
+      box-shadow: 0 0 10px #8D8E8E;
+  }
+
+  .calculator_header {
+    color: white;
+    text-align: center;
+    font: bold;
+  }
+
+  .calculator input[type="text"] {
+    width: 220px;
+    margin-bottom: 10px;
+    padding: 10px;
+    margin-left: 27px;
+    font-size: 20px;
+  }
+
+  .calculator input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #BBBBBF;
+      color: black;
+      border: none;
+      cursor: pointer;
+      margin-left: 27px;
+    }
+ 
+    .calculator input[type="button"]:hover {
+      background-color: white;
+    }
+
+</style>
+</head>
+
+<body>
+  <div class="calculator">
+    <h1 class="calculator_header">Calculator</h1>
+    <input type="text" id="result">
+    <table>
+      <tr class="row_1">
+        <td><input type="button" value="1" onclick="appendnumber('1')"></td>
+        <td><input type="button" value="2" onclick="appendnumber('2')"></td>
+        <td><input type="button" value="3" onclick="appendnumber('3')"></td>
+        <td> <input type="button" value="+" onclick="appendoperator('+')"></td>
+      </tr>
+      <tr class="row_2">
+        <td><input type="button" value="4" onclick="appendnumber('4')"></td>
+        <td><input type="button" value="5" onclick="appendnumber('5')"></td>
+        <td><input type="button" value="6" onclick="appendnumber('6')"></td>
+        <td><input type="button" value="-" onclick="appendoperator('-')"></td>
+      </tr>
+      <tr class="row_3">
+        <td><input type="button" value="7" onclick="appendnumber('7')"></td>
+        <td><input type="button" value="8" onclick="appendnumber('8')"></td>
+        <td><input type="button" value="9" onclick="appendnumber('9')"></td>
+        <td><input type="button" value="*" onclick="appendoperator('*')"></td>
+      </tr>
+      <tr class="row_4">
+        <td><input type="button" value="0" onclick="appendnumber('0')"></td>
+        <td><input type="button" value="." onclick="appendnumber('.')"></td>
+        <td><input type="button" value="=" onclick="calculate()"></td>
+        <td><input type="button" value="/" onclick="appendoperator('/')"></td>
+      </tr>
+      <tr class="row_clear">
+        <td colspan="4"><input type="button" value="Clear" onclick="clearresult()">
+      </tr>    
+    </table>
+      
+  </div>  
+
+<script>
+  function appendnumber(number) {
+    document.getElementById('result').value += number;
+  }
+
+  function appendoperator(number) {
+    document.getElementById('result').value += number;
+  }
+
+  function calculate() {
+    var result = eval(document.getElementById('result').value);
+    document.getElementById('result').value = result;
+  }
+
+  function clearresult() {
+    document.getElementById('result').value = '';
+  }
+</script>
+    
+</body>
+</html>
